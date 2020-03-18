@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>WFH Updates Notifier</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="wfh-wrapper">
+      <div id="content">
+        <div id="status">Status: <span id="color-stat"></span></div>
+        <div class="header">
+          Show update notification every:
+          <input type="number" value="2" id="hours" max="24" min="2"> hour(s)
+        </div>
+        <div class="actions">
+          <button id="start">START</button>
+          <button id="stop">STOP</button>
+        </div>
+        <div id="note">
+          * Please allow notifications on your machine *
+        </div>
+      </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

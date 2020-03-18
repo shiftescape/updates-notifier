@@ -1,0 +1,22 @@
+{
+  "name": "update-notifier",
+  "version": "1.0.0",
+  "description": "Interval-based notifier for wfh",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "package-mac": "electron-packager . --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "package-win": "electron-packager . --asar --platform=win32 --arch=ia32  --prune=true --out=release-builds",
+    "package-linux": "electron-packager . --asar --platform=linux --arch=x64 --prune=true --out=release-builds"
+  },
+  "author": "Alvin James Bellero <ajames.bellero@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^8.1.1",
+    "electron-packager": "^14.2.1"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0"
+  }
+}
