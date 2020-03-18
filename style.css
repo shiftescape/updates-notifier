@@ -25,7 +25,7 @@ html { background: #f9f9f9; }
 }
 
 .actions button:disabled {
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 .actions button#start {
@@ -52,15 +52,28 @@ html { background: #f9f9f9; }
 
 #hours {
     width: 50px;
-    border: 1px solid #DDD;
+    border: 1px solid rgb(168, 168, 168);
     padding: 5px;
     margin: 0 5px;
+}
+
+#hours:disabled,
+#time:disabled {
+    opacity: 0.5;
+    background: #DDD;
+}
+
+#hours:focus,
+#time:focus {
+    background: rgb(255, 255, 203);
 }
 
 #status {
     margin-bottom: 20px;
     border: 1px solid #DDD;
     padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .stopped {
@@ -69,4 +82,48 @@ html { background: #f9f9f9; }
 
 .started {
     color: #27ae60;
+}
+
+#options {
+    margin-top: 10px;
+    border: 1px solid #DDD;
+    padding: 8px 10px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#options label {
+    margin-right: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 0;
+    color: rgb(124, 124, 124);
+}
+
+#options label input[type="time"] {
+    border: 1px solid #DDD;
+}
+
+#options input[type="radio"] {
+    margin-top: -3px;
+}
+
+#options input[type="radio"]:checked + label,
+#options input[type="radio"]:checked ~ div > span {
+    color: green;
+}
+
+#time {
+    border: 1px solid rgb(168, 168, 168);
+    padding: 3px 5px;
+}
+
+#time-wrapper {
+    display: none;
+}
+
+#next-notif-wrapper {
+    display: none;
 }

@@ -6,9 +6,10 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
-    "package-mac": "electron-packager . --platform=darwin --arch=x64 --prune=true --out=release-builds",
-    "package-win": "electron-packager . --asar --platform=win32 --arch=ia32  --prune=true --out=release-builds",
-    "package-linux": "electron-packager . --asar --platform=linux --arch=x64 --prune=true --out=release-builds"
+    "package-mac": "electron-packager ./ --platform=darwin --arch=x64 --out=release-builds/mac",
+    "package-win": "electron-packager ./ --asar --platform=win32 --arch=x64  --out=release-builds/win",
+    "package-linux": "electron-packager ./ --asar --platform=linux --arch=x64 --out=release-builds/linux",
+    "package-all": "electron-packager ./ --all"
   },
   "author": "Alvin James Bellero <ajames.bellero@gmail.com>",
   "license": "MIT",

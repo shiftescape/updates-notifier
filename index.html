@@ -12,10 +12,25 @@
   <body>
     <div id="wfh-wrapper">
       <div id="content">
-        <div id="status">Status: <span id="color-stat"></span></div>
+
+        <div id="status">
+          <div>
+            Status: <span id="color-stat"></span>
+          </div>
+          <div id="next-notif-wrapper">
+            &nbsp; | &nbsp;Next Reminder: <span id="color-stat-next" class="started"></span>
+          </div>
+        </div>
         <div class="header">
-          Show update notification every:
-          <input type="number" value="2" id="hours" max="24" min="2"> hour(s)
+          Show updates notification every:
+          <input type="number" value="2" id="hours" max="24" min="1"> hour(s)
+        </div>
+        <div id="options">
+          <input type="radio" name="start-option" id="start-instant" value="INSTANT" checked> <label for="start-instant">Start instantly</label>
+          <input type="radio" name="start-option" id="start-from-time" value="GIVEN-TIME"> <label for="start-from-time">Override (at) -- </label>
+          <div id="time-wrapper">
+            <input type="number" id="time" value="0" min="0" max="60">&nbsp;&nbsp;<span>min(s) of every ^ hour(s)</span>
+          </div>
         </div>
         <div class="actions">
           <button id="start">START</button>
@@ -27,6 +42,7 @@
       </div>
     </div>
     <!-- You can also require other files to run in this process -->
+    <script src="./moment.min.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>

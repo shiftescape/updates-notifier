@@ -1,14 +1,14 @@
 // Modules to control application life and create native browser window
 require('electron-reload')(__dirname);
 
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 220,
+    width: 530,
+    height: 300,
     resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -18,8 +18,28 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
+  const menu = Menu.buildFromTemplate([{
+    label: 'Menu',
+    submenu: [
+      {
+        label: 'About'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Exit',
+        click() {
+          app.quit()
+        }
+      }
+    ]
+  }]);
+
+  Menu.setApplicationMenu(menu);
+
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
