@@ -6,7 +6,10 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
-    "dist": "electron-builder build"
+    "package-win": "electron-builder --win",
+    "package-mac": "electron-builder --mac",
+    "package-linux": "electron-builder --linux",
+    "package-all": "electron-builder -mwl"
   },
   "build": {
     "appId": "com.shiftescape.updates-notifier",
