@@ -1,20 +1,25 @@
 {
-  "name": "update-notifier",
+  "name": "updates-notifier",
   "version": "1.0.0",
   "description": "Simple, interval-based notifier application",
   "main": "main.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
-    "package-mac": "electron-packager ./ --platform=darwin --arch=x64 --out=release-builds/mac",
-    "package-win": "electron-packager ./ --asar --platform=win32 --arch=x64  --out=release-builds/win",
-    "package-linux": "electron-packager ./ --asar --platform=linux --arch=x64 --out=release-builds/linux",
-    "package-all": "electron-packager ./ --all"
+    "dist": "electron-builder build"
+  },
+  "build": {
+    "appId": "com.shiftescape.updates-notifier",
+    "win": {
+      "target": "NSIS"
+    }
   },
   "author": "Alvin James Bellero <ajames.bellero@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "asar": "^3.0.1",
     "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
     "electron-packager": "^14.2.1"
   },
   "dependencies": {
