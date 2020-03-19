@@ -18,26 +18,6 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  const menu = Menu.buildFromTemplate([{
-    label: 'Menu',
-    submenu: [
-      {
-        label: 'About'
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'Exit',
-        click() {
-          app.quit()
-        }
-      }
-    ]
-  }]);
-
-  Menu.setApplicationMenu(menu);
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
