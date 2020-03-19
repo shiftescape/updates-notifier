@@ -52,10 +52,10 @@
     }
 
     // Facilitate sending notifications
-    const sendNotification = (title, body) => {
+    const sendNotification = (title, body, permanent=false) => {
         Notification.requestPermission()
             .then((result) => {
-                new Notification(title, { body });
+                new Notification(title, { body, timeoutType: (!permanent ? 'default' : 'never') });
             })
             .catch((err) => alert(err));
     }
@@ -68,7 +68,7 @@
             currentTime = moment();
             if (currentTime.format('X') >= nextTime.format('X')) {
                 getCurrentTime(nextTime, isInstant, (isInstant ? null : (timeTxt.value * 1)));
-                sendNotification('[REMINDER]: WFH Update Notification', 'Please send your current updates to your supervisor');
+                sendNotification('[REMINDER]: WFH Update Notification', 'Please send your current updates to your supervisor', true);
             }
         }, 1000);
         initButtonStates();

@@ -106,9 +106,9 @@ html { background: #f9f9f9; }
     border: 1px solid #DDD;
 }
 
-#options input[type="radio"] {
+/* #options input[type="radio"] {
     margin-top: -3px;
-}
+} */
 
 #options input[type="radio"]:checked + label,
 #options input[type="radio"]:checked ~ div > span {
